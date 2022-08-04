@@ -1,0 +1,74 @@
+﻿@model IEnumerable<QLDT.Models.ChiTietDH>
+
+@{
+    ViewBag.Title = "CTHD_HoaDon_Show";
+    Layout = "~/Views/Shared/QuanLy.cshtml";
+}
+
+<p style="color:hotpink; font-weight:bold; text-align:center; font-size:25px">
+    BẢNG HÓA ĐƠN và CHI TIẾT HÓA ĐƠN
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            MÃ HÓA ĐƠN
+        </th>
+        <th>
+            MÃ SẢN PHẨM
+        </th>
+        <th>
+            ẢNH
+        </th>
+        <th>
+            MÃ TÀI KHOẢN
+        </th>
+        <th>
+            SỐ LƯỢNG ĐẶT
+        </th>
+        <th>
+            NGÀY ĐẶT
+        </th>
+        <th>
+            TÌNH TRẠNG
+        </th>
+        <th>
+            ĐƠN GIÁ
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaDH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaSP)
+    </td>
+    <td width="100px">
+        <img src="~/img/dt/@item.SanPham.AnhBia" class="w-50 img-rounded" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DonHang.MaTK)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoLuong)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DonHang.NgayDat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DonHang.TinhTrang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DonGia)
+    </td>
+    <td>
+
+    </td>
+</tr>
+    }
+
+</table>

@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/QuanLy.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+    </script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+
+    <p style="color:hotpink; font-weight:bold; text-align:center; font-size:25px">
+        TÌM KIẾM SẢN PHẨM
+    </p>
+    <center>
+        <input id="myInput" type="text" placeholder="Search..">
+    </center>
+
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align:center">Mã điện thoại</th>
+                <th style="text-align:center">Tên điện thoại</th>
+                <th style="text-align:center">Mô tả</th>
+                <th style="text-align:center">Giá bán</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr>
+                <td>1</td>
+                <td>IPhone 13 Pro Max(128GB)</td>
+                <td>Màn hình 6.7", Chip Apple A15 Bionic- RAM 6 GB, ROM 128 GB- Camera sau: 3 camera 12 MP- Camera trước: 12 MP- Pin 4352 mAh, Sạc 20 </td>
+                <td>33990000.00</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>IPhone 13 Pro Max(1TB)</td>
+                <td>Màn hình 6.7", Chip Apple A15 Bionic- RAM 6 GB, ROM 1 TB- Camera sau: 3 camera 12 MP- Camera trước: 12 MP- Pin 4352 mAh, Sạc 20 W</td>
+                <td>48490000.00</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>IPhone 12 Pro Max(512GB)</td>
+                <td>Màn hình 6.7", Chip Apple A14 Bionic- RAM 6 GB, ROM 512 GB- Camera sau: 3 camera 12 MP- Camera trước: 12 MP- Pin 3687 mAh, Sạc 20 W</td>
+                <td>39990000.00</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>IPhone 11(256GB)</td>
+                <td>Màn hình 6.1", Chip Apple A13 Bionic- RAM 4 GB, ROM 256 GB- Camera sau: 2 camera 12 MP- Camera trước: 12 MP- Pin 3110 mAh, Sạc 18 W</td>
+                <td>20490000.00</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>IPhone XR(128GB)</td>
+                <td>Màn hình 6.1", Chip Apple A12 Bionic- RAM 3 GB, ROM 128 GB- Camera sau: 12 MP- Camera trước: 7 MP- Pin 2942 mAh, Sạc 15 W</td>
+                <td>15490000.00</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Samsung Galaxy Z Fold3 5G(512GB)</td>
+                <td>Màn hình Chính 7.6 “ & Phụ 6.2 “, Chip Snapdragon 888- RAM 12 GB, ROM 512 GB- Camera sau: 3 camera 12MP- Camera trước: 10MP & 4 MP- Pin 4400mAh, Sạc 25w</td>
+                <td>43990000.00</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Samsung Galaxy Z Flip3 5G(256GB)</td>
+                <td>Màn hình Chính 6.7 “ & Phụ 1.9 “, Chip Snapdragon 888- RAM 8GB, ROM 256GB- Camera sau: 2 camera 12MP- Camera trước: 10MP - Pin 3300mAh, Sạc 15w</td>
+                <td>25990000.00</td>
+            <tr>
+                <td>8</td>
+                <td>Samsung Galaxy S21 Ultra 5G(128GB)</td>
+                <td>Màn hình Chính 6.8, ChipExynos 2100- RAM 12 GB, ROM 128GB- Camera sau: Chính 108 MP & Phụ 12MP, 10MP, 10MP- Camera trước: 40MP - Pin 5000mAh, Sạc 25w</td>
+                <td>21990000.00</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Samsung Galaxy S21 5G</td>
+                <td>Màn hình Chính 6.2, ChipExynos 2100- RAM 8 GB, ROM 128GB- Camera sau: Chính 12MP & Phụ 64MP, 12MP- Camera trước: 10MP - Pin 4000mAh, Sạc 25w</td>
+                <td>13990000.00</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Samsung Galaxy A52 5G</td>
+                <td>Màn hình Chính 6.5”, Chip Snapdragon 750G 5G- RAM 8 GB, ROM 128GB- Camera sau: Chính 64MP & Phụ 12MP, 5MP,5MP- Camera trước: 32MP - Pin 4500mAh, Sạc 25w</td>
+                <td>9490000.00</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>OPPO Reno6 Z 5G</td>
+                <td>Màn hình 6.43", Chip MediaTek Dimensity 800U 5G- RAM 8 GB, ROM 128 GB- Camera sau: Chính 64 MP & Phụ 8 MP, 2 MP- Camera trước: 32 MP- Pin 4310 mAh, Sạc 30 W</td>
+                <td>9490000.00</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>OPPO Find X3 Pro 5G</td>
+                <td>Màn hình 6.7", Chip Snapdragon 888- RAM 12 GB, ROM 256 GB- Camera sau: Chính 50 MP & Phụ 50 MP, 13 MP, 3 MP- Camera trước: 32 MP- Pin 4500 mAh, Sạc 65 W</td>
+                <td>23990000.00</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>OPPO Reno4 Pro</td>
+                <td>Màn hình 6.5", Chip Snapdragon 720G- RAM 8 GB, ROM 256 GB- Camera sau: Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP- Camera trước: 32 MP- Pin 4000 mAh, Sạc 65 W</td>
+                <td>10490000.00</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>OPPO Reno5 </td>
+                <td>Màn hình 6.43", Chip Snapdragon 720G- RAM 8 GB, ROM 128 GB- Camera sau: Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP- Camera trước: 44 MP- Pin 4310 mAh, Sạc 50 W</td>
+                <td>8190000.00</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>OPPO A94</td>
+                <td>Màn hình 6.43", Chip MediaTek Helio P95- RAM 8 GB, ROM 128 GB- Camera sau: Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP- Camera trước: 32 MP- Pin 4310 mAh, Sạc 30 W</td>
+                <td>7690000.00</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Vivo X70 Pro 5G</td>
+                <td>Màn hình 6.56", Chip MediaTek Dimensity 1200- RAM 12 GB, ROM 256 GB- Camera sau: Chính 50 MP & Phụ 12 MP, 12 MP, 8 MP- Camera trước: 32 MP- Pin 4450 mAh, Sạc 44 W</td>
+                <td>18990000.00</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Vivo V21 5G</td>
+                <td>Màn hình 6.44", Chip MediaTek Dimensity 800U 5G- RAM 8 GB, ROM 128 GB- Camera sau: Chính 64 MP & Phụ 8 MP, 2 MP- Camera trước: 44 MP- Pin 4000 mAh, Sạc 33 W</td>
+                <td>9490000.00</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Vivo Y72 5G</td>
+                <td>Màn hình 6.58", Chip MediaTek Dimensity 700- RAM 8 GB, ROM 128 GB- Camera sau: Chính 64 MP & Phụ 8 MP, 2 MP- Camera trước: 16 MP- Pin 5000 mAh, Sạc 18 W</td>
+                <td>7590000.00</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Vivo V20 SE</td>
+                <td>Màn hình 6.44", Chip Snapdragon 665- RAM 8 GB, ROM 128 GB- Camera sau: Chính 48 MP & Phụ 8 MP, 2 MP- Camera trước: 32 MP- Pin 4100 mAh, Sạc 33 W</td>
+                <td>6490000.00</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Vivo Y21s 6GB</td>
+                <td>Màn hình 6.51", Chip MediaTek Helio G80- RAM 6 GB, ROM 128 GB- Camera sau: Chính 50 MP & Phụ 2 MP, 2 MP- Camera trước: 8 MP- Pin 5000 mAh, Sạc 18 W</td>
+                <td>5990000.00</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Xiaomi 11T Pro 5G</td>
+                <td>Màn hình 6.67", Chip Snapdragon 888- RAM 12 GB, ROM 256 GB- Camera sau: Chính 108 MP & Phụ 8 MP, 5 MP- Camera trước: 16 MP- Pin 5000 mAh, Sạc 120 W</td>
+                <td>14990000.00</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Xiaomi Mi 11 5G</td>
+                <td>Màn hình 6.81", Chip Snapdragon 888- RAM 8 GB, ROM 256 GB- Camera sau: Chính 108 MP & Phụ 13 MP, 5 MP- Camera trước: 20 MP- Pin 4600 mAh, Sạc 55 W</td>
+                <td>16990000.00</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Xiaomi Mi 10T Pro 5G</td>
+                <td>Màn hình 6.67", Chip Snapdragon 865- RAM 8 GB, ROM 256 GB- Camera sau: Chính 108 MP & Phụ 13 MP, 5 MP- Camera trước: 20 MP- Pin 5000 mAh, Sạc 33 W</td>
+                <td>12490000.00</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Xiaomi Redmi Note 10 Pro (8GB/128GB)</td>
+                <td>Màn hình 6.67", Chip Snapdragon 732G- RAM 8 GB, ROM 128 GB- Camera sau: Chính 108 MP & Phụ 8 MP, 5 MP, 2 MP- Camera trước: 16 MP- Pin 5020 mAh, Sạc 33 W</td>
+                <td>7490000.00</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Xiaomi Redmi 9T (6GB/128GB)</td>
+                <td>Màn hình 6.53", Chip Snapdragon 662- RAM 6 GB, ROM 128 GB- Camera sau: Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP- Camera trước: 8 MP- Pin 6000 mAh, Sạc 18 W</td>
+                <td>4990000.00</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Realme 7 Pro</td>
+                <td>Màn hình 6.4", Chip Snapdragon 720G- RAM 8 GB, ROM 128 GB- Camera sau: Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP- Camera trước: 32 MP- Pin 4500 mAh, Sạc 65 W</td>
+                <td>8540000.00</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Realme 8 5G</td>
+                <td>Màn hình 6.5", Chip MediaTek Dimensity 700- RAM 8 GB, ROM 128 GB- Camera sau: Chính 48 MP & Phụ 2 MP, 2 MP- Camera trước: 16 MP- Pin 5000 mAh, Sạc 18 W</td>
+                <td>7590000.00</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Realme 6 Pro</td>
+                <td>Màn hình 6.6", Chip Snapdragon 720G- RAM 8 GB, ROM 128 GB- Camera sau: Chính 64 MP & Phụ 12 MP, 8 MP, 2 MP- Camera trước: Chính 16 MP & Phụ 8 MP- Pin 4300 mAh, Sạc 30 W</td>
+                <td>6990000.00</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+</html>

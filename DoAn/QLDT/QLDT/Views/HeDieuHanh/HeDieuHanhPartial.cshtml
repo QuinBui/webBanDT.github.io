@@ -1,0 +1,20 @@
+﻿@using QLDT.Models
+@model List<HeDieuHanh>
+
+<ul class="list-group list-group-flush text-left">
+    <li class="list-group-item" style="background-color:darkorange">
+        <a href="#" style="text-transform:uppercase;text-decoration:none;color:white;font-weight:bold">HỆ ĐIỀU HÀNH</a>
+    </li>
+    @{
+        foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <a href="@Url.Action("DtTheoHDH","HeDieuHanh",new {@maHDH=item.MaHDH})" style="text-transform:uppercase;text-decoration:none">@item.TenHDH</a>
+            </li>
+        }
+        <li class="list-group-item">
+            <a href="#" style="text-transform:uppercase;text-decoration:none"></a>
+        </li>
+    }
+</ul>
+

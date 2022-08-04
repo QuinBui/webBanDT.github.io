@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_DTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietDH">
+    <Key>
+      <PropertyRef Name="MaDH" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaDH" Type="int" Nullable="false" />
+    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="MaDH" />
+    </Key>
+    <Property Name="MaDH" Type="int" Nullable="false" />
+    <Property Name="NgayDat" Type="datetime" />
+    <Property Name="TinhTrang" Type="int" />
+    <Property Name="MaTK" Type="int" />
+  </EntityType>
+  <EntityType Name="HangSanXuat">
+    <Key>
+      <PropertyRef Name="MaHSX" />
+    </Key>
+    <Property Name="MaHSX" Type="int" Nullable="false" />
+    <Property Name="TenHang" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HeDieuHanh">
+    <Key>
+      <PropertyRef Name="MaHDH" />
+    </Key>
+    <Property Name="MaHDH" Type="int" Nullable="false" />
+    <Property Name="TenHDH" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PhanHoi">
+    <Key>
+      <PropertyRef Name="Mail" />
+    </Key>
+    <Property Name="Mail" Type="char" MaxLength="70" Nullable="false" />
+    <Property Name="ThongTin" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="100" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="GiaTien" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="AnhBia" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaHSX" Type="int" />
+    <Property Name="MaHDH" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="MaTK" />
+    </Key>
+    <Property Name="MaTK" Type="int" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="DT" Type="nvarchar" MaxLength="11" />
+    <Property Name="TenTK" Type="nvarchar" MaxLength="50" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="lv" Type="int" />
+  </EntityType>
+  <Association Name="fk_ctdh_DH">
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
+    <End Role="ChiTietDH" Type="Self.ChiTietDH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="MaDH" />
+      </Principal>
+      <Dependent Role="ChiTietDH">
+        <PropertyRef Name="MaDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ctdh_SP">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="ChiTietDH" Type="Self.ChiTietDH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="ChiTietDH">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dh">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sp_HDH">
+    <End Role="HeDieuHanh" Type="Self.HeDieuHanh" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeDieuHanh">
+        <PropertyRef Name="MaHDH" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaHDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sp_HSX">
+    <End Role="HangSanXuat" Type="Self.HangSanXuat" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangSanXuat">
+        <PropertyRef Name="MaHSX" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaHSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QL_DTModelStoreContainer">
+    <EntitySet Name="ChiTietDH" EntityType="Self.ChiTietDH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HangSanXuat" EntityType="Self.HangSanXuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HeDieuHanh" EntityType="Self.HeDieuHanh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanHoi" EntityType="Self.PhanHoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_ctdh_DH" Association="Self.fk_ctdh_DH">
+      <End Role="DonHang" EntitySet="DonHang" />
+      <End Role="ChiTietDH" EntitySet="ChiTietDH" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ctdh_SP" Association="Self.fk_ctdh_SP">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="ChiTietDH" EntitySet="ChiTietDH" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dh" Association="Self.fk_dh">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="DonHang" EntitySet="DonHang" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sp_HDH" Association="Self.fk_sp_HDH">
+      <End Role="HeDieuHanh" EntitySet="HeDieuHanh" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sp_HSX" Association="Self.fk_sp_HSX">
+      <End Role="HangSanXuat" EntitySet="HangSanXuat" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

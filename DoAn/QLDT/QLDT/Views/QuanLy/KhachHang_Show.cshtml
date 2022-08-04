@@ -1,0 +1,52 @@
+﻿@model IEnumerable<QLDT.Models.TaiKhoan>
+
+@{
+    ViewBag.Title = "KhachHang_Show";
+    Layout = "~/Views/Shared/QuanLy.cshtml";
+}
+
+<p style="color:hotpink; font-weight:bold; text-align:center; font-size:25px">
+    BẢNG HÓA ĐƠN và CHI TIẾT HÓA ĐƠN
+</p>
+<table class="table">
+    <tr>
+        <th>
+            MÃ TÀI KHOẢN
+        </th>
+        <th>
+            HỌ TÊN
+        </th>
+        <th>
+            EMAIL
+        </th>
+        <th>
+            SĐT
+        </th>
+        <th>
+            ĐỊA CHỈ
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+
+    </tr>
+}
+
+</table>

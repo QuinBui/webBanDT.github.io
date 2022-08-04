@@ -1,0 +1,47 @@
+﻿@model QLDT.Models.HangSanXuat
+
+@{
+    ViewBag.Title = "HangSanXuat_Update";
+    Layout = "~/Views/Shared/QuanLy.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="container" style="width:40%">
+    <p style="color:hotpink; font-weight:bold; text-align:center; font-size:25px">
+        UPDATE BẢNG HÃNG SẢN XUẤT
+    </p>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.MaHSX, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        Mã Hãng Sản Xuất :
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaHSX, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaHSX, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.TenHang, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        Tên Hãng Sản Xuất :
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenHang, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenHang, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "HangSanXuat_Show", "QuanLy")
+    </div>
+</div>
+}
+

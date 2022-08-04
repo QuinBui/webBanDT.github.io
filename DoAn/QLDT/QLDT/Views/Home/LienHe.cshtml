@@ -1,0 +1,144 @@
+﻿@model QLDT.Models.PhanHoi
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+<br />
+<div class="container">
+    <div id="Content" class="row">
+        <div class="col-3">
+            <h1 style="text-align:center; font-weight:bold">Đóng góp ý kiến</h1>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="font-size:15px">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                @*@Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })*@
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label" style="font-size:15px">Ý kiến đóng góp</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                @*@Html.EditorFor(model => model.ThongTin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ThongTin, "", new { @class = "text-danger" })*@
+
+            </div>
+            <center>
+                <button class="btn btn-outline-warning" style="font-size:20px">Gửi</button>
+                @*<input type="submit" value="Gửi" class="btn btn-warning" />*@
+            </center>
+
+        </div>
+
+        <div class="col-9">
+            <button aria-expanded="false" class="btn btn-outline-primary"
+                    data-toggle="collapse" data-target="#boxnoidung" style="margin-left:80%; font-size:20px">
+                Đăng nhập
+            </button>
+
+            <div class="collapse mt-4" id="boxnoidung" style="width: 40%; margin-left: 60%">
+                <div class="card card-body bg-warning">
+                    <p>Đăng nhập để đặt câu hỏi</p>
+                    <div class="alert alert-warning" role="alert">
+                        <img src="~/img/title/fb.PNG" width="25" />&nbsp;&nbsp;
+                        <a href="https://www.facebook.com/" style="text-transform:uppercase;text-decoration:none;">Facebook</a>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <img src="~/img/title/gg.PNG" width="25" />&nbsp;&nbsp;
+                        <a href="https://myaccount.google.com/" style="text-transform:uppercase;text-decoration:none;">Google</a>
+                    </div>
+                </div>
+            </div><br /><br />
+
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+            </div>
+            <br /><br />
+
+            <h1 style="text-align:center; font-weight:bold">Hướng dẫn, thủ thuật điện thoại</h1>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-size:18px">
+                            Cách chuyển dữ liệu WhatsApp từ iPhone sang thiết bị Galaxy nhanh nhất
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="font-size:15px">
+                        <div class="accordion-body">
+                            Bạn muốn chuyển dữ liệu WhatsApp từ iPhone sang thiết bị Galaxy? Bạn không muốn bị gián đoạn các cuộc trò chuyện trên WhatsApp khi chuyển sang sử dụng điện thoại mới? Đừng lo, bài viết này sẽ giúp bạn thực hiện điều đó!<br />
+                            <a href="https://www.thegioididong.com/hoi-dap/cach-chuyen-du-lieu-whatsapp-tu-iphone-sang-thiet-bi-1388535">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-size:18px">
+                            5 cách chụp ảnh có hiển thị ngày giờ trên điện thoại Android đơn giản
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="font-size:15px">
+                        <div class="accordion-body">
+                            Thêm mốc thời gian vào ảnh chụp bằng điện thoại giúp bạn lưu lại những khoảnh khắc đáng nhớ. Hiện nay, có rất nhiều ứng dụng hỗ trợ bạn chụp ảnh có hiển thị ngày giờ. Cùng mình khám phá ngay 5 cách chụp ảnh có hiển thị ngày giờ trên điện thoại Android nhé.
+                            <a href="https://www.thegioididong.com/hoi-dap/huong-dan-cach-chup-anh-co-hien-thi-ngay-gio-bang-969051">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size:18px">
+                            Top 8 phần mềm chỉnh sửa ảnh trên điện thoại vạn người mê bạn nên biết
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="font-size:15px">
+                        <div class="accordion-body">
+                            Khi chụp ảnh, đôi khi bạn vẫn chưa ưng ý ở bức ảnh của mình ở màu sắc của bức ảnh hay một số khuyết điểm trên gương mặt. Vì thế, khá nhiều người ưa chuộng các ứng dụng chỉnh sửa ảnh để bản thân, phong cảnh có màu ảnh trông ổn hơn. Bài viết này sẽ giới thiệu đến bạn một số phần mềm chỉnh sửa ảnh trên điện thoại dễ sử dụng, được nhiều người yêu thích.
+                            <a href="https://www.thegioididong.com/hoi-dap/top-8-phan-mem-chinh-sua-anh-tren-dien-thoai-van-nguoi-me-1388039">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br /><br /><br />
+
+            <div class="d-flex position-relative">
+                <img src="~/img/quangCao/ch4.JPG" class="flex-shrink-0 me-3" width="200">
+                <div>
+                    <a href="https://www.thegioididong.com/hoi-dap/top-4-mau-dien-thoai-mau-do-dep-hut-hon-dang-mua-nhat-nam-1392851" class=" stretched-link" style="text-transform:uppercase;text-decoration:none; color:black">
+                        <h4>Top 4 mẫu điện thoại màu đỏ đẹp hút hồn đáng mua nhất năm 2021</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex position-relative">
+                <img src="~/img/quangCao/ch3.PNG" class="flex-shrink-0 me-3" width="200">
+                <div>
+                    <a href="https://www.thegioididong.com/hoi-dap/top-6-mau-dien-thoai-thiet-ke-kim-loai-nguyen-khoi-dang-1392242" class=" stretched-link" style="text-transform:uppercase;text-decoration:none; color:black">
+                        <h4>Top 6 mẫu điện thoại thiết kế kim loại nguyên khối đáng mua nhất 2021</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex position-relative">
+                <img src="~/img/quangCao/ch1.PNG" class="flex-shrink-0 me-3" width="200">
+                <div>
+                    <a href="https://www.thegioididong.com/hoi-dap/cau-hoi-855995" class=" stretched-link" style="text-transform:uppercase;text-decoration:none; color:black">
+                        <h4>Cách tăng độ nhạy cảm ứng trên điện thoại OPPO, Realme cực dễ</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex position-relative">
+                <img src="~/img/quangCao/ch2.PNG" class="flex-shrink-0 me-3" width="200">
+                <div>
+                    <a href="https://www.thegioididong.com/hoi-dap/cau-hoi-859096" class=" stretched-link" style="text-transform:uppercase;text-decoration:none; color:black">
+                        <h4>Cách khôi phục file ghi âm đã xóa trên điện thoại Android nhanh chóng</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex position-relative">
+                <img src="~/img/quangCao/ch3.PNG" class="flex-shrink-0 me-3" width="200">
+                <div>
+                    <a href="https://www.thegioididong.com/hoi-dap/tom-tat-nhanh-su-kien-ra-mat-iphone-13-ngay-14-9-2021-vua-1385069" class=" stretched-link" style="text-transform:uppercase;text-decoration:none; color:black">
+                        <h4>Tóm tắt nhanh sự kiện ra mắt iPhone 13 ngày 14/9/2021</h4>
+                    </a>
+                </div>
+            </div>
+
+            <br />
+        </div>
+    </div>
+</div>

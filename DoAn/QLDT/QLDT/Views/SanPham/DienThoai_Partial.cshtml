@@ -1,0 +1,81 @@
+﻿@*@using QLDT.Models;
+    @model List<SanPham>*@
+@model PagedList.IPagedList<QLDT.Models.SanPham>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "DienThoai_Partial";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<style>
+    /*phantrang*/
+    .ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul.pagination li {
+        display: inline;
+    }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+            ul.pagination li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            ul.pagination li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+</style>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-4">
+            <img src="@Url.Content("~/img/dt/"+@item.AnhBia)" width="200px" height="250px" alt="Image" />
+            @if (item.TenSP.Length > 30)
+            {
+                <p>
+                    <br />
+                    <strong title="@item.TenSP">@item.TenSP.Substring(0, 30)...</strong><br />
+                    &nbsp;<strong style="color: orange">@string.Format("{0:0,0}", item.GiaTien) VND</strong><br />
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i><br />
+                    <a href="@Url.Action("XemChiTiet",new { @ms=item.MaSP})" style="margin-left:150px;text-decoration:none">View more <i class="fab fa-waze fa-lg"></i></a>
+                </p>
+            }
+            else
+            {
+                <p>
+                    <br />
+                    <strong title="@item.TenSP">@item.TenSP</strong><br />
+                    &nbsp;<strong style="color:orange">@string.Format("{0:0,0}", item.GiaTien) VND</strong><br />
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="fas fa-star fa-sm" style="color:orangered"></i>
+                    <i class="far fa-star fa-sm"></i><br />
+                    <a href="@Url.Action("XemChiTiet",new { @ms=item.MaSP})" style="margin-left:150px;text-decoration:none">View more <i class="fab fa-waze fa-lg"></i></a>
+
+                </p>
+            }
+            <br />
+        </div>
+    }
+</div>
+<center style="color:#CCC">
+    <div class="col-md-3 text-center clear-both" style="margin:0 auto;">
+        @Html.PagedListPager(Model, Page => Url.Action("DienThoai_Partial", new { Page }))
+    </div>
+</center>

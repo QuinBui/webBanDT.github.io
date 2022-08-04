@@ -1,0 +1,116 @@
+﻿@*@model IEnumerable<QLDT.Models.SanPham>*@
+@model PagedList.IPagedList<QLDT.Models.SanPham>
+@using PagedList.Mvc;
+@using PagedList;
+
+@{
+    ViewBag.Title = "SanPham_Show";
+    Layout = "~/Views/Shared/QuanLy.cshtml";
+}
+<style>
+    /*phantrang*/
+    .ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul.pagination li {
+        display: inline;
+    }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+            ul.pagination li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            ul.pagination li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+</style>
+
+<br />
+<p style="color:hotpink; font-weight:bold; text-align:center; font-size:25px">
+    BẢNG SẢN PHẨM
+</p>
+<a href="TimKiem" style="margin-left:80%"><button type="button" class="btn btn-warning"><i class="fas fa-search"></i></button></a>
+<p>
+    @Html.ActionLink("Create New", "SanPham_Create", "QuanLy")
+</p>
+<table class="table">
+    <tr style="text-align:center">
+        <th>
+            Mã điện thoại
+        </th>
+        <th>
+            Tên điện thoại
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Giá bán
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Ảnh
+        </th>
+        <th>
+            Mã hãng sản xuất
+        </th>
+        <th>
+            Mã hệ điều hành
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td width="100px">
+                <img src="~/img/dt/@item.AnhBia" class="w-50 img-rounded" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHSX)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHDH)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "SanPham_Update", new { id = item.MaSP }) <br />
+                @Html.ActionLink("Delete", "SanPham_Delete", new { id = item.MaSP })
+            </td>
+        </tr>
+    }
+
+</table>
+<center style="color:#CCC">
+    <div class="col-md-3 text-center clear-both" style="margin:0 auto;">
+        @Html.PagedListPager(Model, Page => Url.Action("SanPham_Show", new { Page }))
+    </div>
+</center>

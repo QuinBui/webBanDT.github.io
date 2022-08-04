@@ -1,0 +1,43 @@
+﻿@model IEnumerable<QLDT.Models.HangSanXuat>
+
+@{
+    ViewBag.Title = "HangSanXuat_Show";
+    Layout = "~/Views/Shared/QuanLy.cshtml";
+}
+<br />
+<p style="color:hotpink; font-weight:bold; text-align:center; font-size:25px">
+    BẢNG HÃNG SẢN XUẤT
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "HangSanXuat_Create","QuanLy")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.MaHSX)*@
+            Mã HSX
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TenHang)*@
+            Tên Hãng Sản Xuất
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaHSX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenHang)
+        </td>
+        <td>
+            @Html.ActionLink("Update", "HangSanXuat_Update", new { id=item.MaHSX }) |
+            @Html.ActionLink("Delete", "HangSanXuat_Delete", new { id = item.MaHSX })
+        </td>
+    </tr>
+}
+
+</table>
